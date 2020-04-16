@@ -8,13 +8,17 @@
     "build": "npm run build:tailwind && rollup -c",
     "autobuild": "rollup -c -w",
     "start": "sirv public",
-    "start:dev": "sirv public --dev"
+    "start:dev": "sirv public --dev",
+    "lint": "prettier --list-different -- 'src/**/*.{html,js,svelte}'",
+    "lint:fix": "prettier --write 'src/**/*.{html,js,svelte}'"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.0",
     "@rollup/plugin-node-resolve": "^7.0.0",
     "miragejs": "^0.1.37",
     "postcss-cli": "^7.1.0",
+    "prettier": "^1.19.1",
+    "prettier-plugin-svelte": "^0.7.0",
     "rollup": "^1.20.0",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-svelte": "^5.0.3",
