@@ -1,46 +1,46 @@
-import { Server } from "miragejs";
+import { Server } from 'miragejs';
 
-export function makeServer({ environment = "development" } = {}) {
-  let server = new Server({
-    environment,
+export function makeServer({ environment = 'development' } = {}) {
+    let server = new Server({
+        environment,
 
-    seeds(server) {
-      server.db.loadData({
-        todos: [
-          { text: "Buy groceries", isDone: false },
-          { text: "Walk the dog", isDone: false },
-          { text: "Do laundry", isDone: false }
-        ]
-      });
-    },
+        seeds(server) {
+            server.db.loadData({
+                todos: [
+                    { text: 'Buy groceries', isDone: false },
+                    { text: 'Walk the dog', isDone: false },
+                    { text: 'Do laundry', isDone: false },
+                ],
+            });
+        },
 
-    routes() {
-      this.namespace = "api";
-      this.timing = 750;
+        routes() {
+            this.namespace = 'api';
+            this.timing = 750;
 
-      this.get("/todos", ({ db }) => {
-        return db.todos;
-      });
+            this.get('/todos', ({ db }) => {
+                return db.todos;
+            });
 
-      this.patch("/todos/:id", (schema, request) => {
-        let todo = JSON.parse(request.requestBody).data;
+            this.patch('/todos/:id', (schema, request) => {
+                let todo = JSON.parse(request.requestBody).data;
 
-        return schema.db.todos.update(todo.id, todo);
-      });
+                return schema.db.todos.update(todo.id, todo);
+            });
 
-      this.post("/todos", (schema, request) => {
-        let todo = JSON.parse(request.requestBody).data;
+            this.post('/todos', (schema, request) => {
+                let todo = JSON.parse(request.requestBody).data;
 
-        return schema.db.todos.insert(todo);
-      });
+                return schema.db.todos.insert(todo);
+            });
 
-      this.delete("/todos/:id", (schema, request) => {
-        return schema.db.todos.remove(request.params.id);
-      });
-    }
-  });
+            this.delete('/todos/:id', (schema, request) => {
+                return schema.db.todos.remove(request.params.id);
+            });
+        },
+    });
 
-  window.server = server;
+    window.server = server;
 
-  return server;
+    return server;
 }
