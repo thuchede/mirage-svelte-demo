@@ -5,12 +5,7 @@
 
     export let url = '';
 
-    const propagateClass = ({ baseClass, activeClass }) => ({
-        location,
-        href,
-        isPartiallyCurrent,
-        isCurrent,
-    }) => {
+    const propagateClass = ({ baseClass, activeClass }) => ({ isCurrent }) => {
         return { class: `${baseClass}${isCurrent ? ' ' + activeClass : ''}` };
     };
 </script>

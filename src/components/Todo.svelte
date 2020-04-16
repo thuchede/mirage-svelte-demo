@@ -8,7 +8,7 @@
     let isFocused;
     let hasChanges;
 
-    async function save(event) {
+    async function save() {
         isFocused = false;
         if (hasChanges) {
             dispatch('change', localTodo);

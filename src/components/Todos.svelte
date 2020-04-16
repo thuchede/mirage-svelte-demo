@@ -6,7 +6,7 @@
     let todos = [];
     let pendingOps = [];
 
-    async function createTodo(event) {
+    async function createTodo() {
         const operationId = Symbol();
         pendingOps = [...pendingOps, operationId];
         let index = todos.length;

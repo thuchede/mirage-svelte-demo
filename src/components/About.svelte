@@ -4,9 +4,9 @@
         This is an SPA made with
         <a href="https://miragejs.com">Mirage</a>
         and
-        <a href="https://svelte.dev/">Svelte</a>
-        . It has two routes to help demonstrate how Mirage's in-memory database enables realistic
-        data fetching and persisting during a single application session.
+        <a href="https://svelte.dev/">Svelte.</a>
+        It has two routes to help demonstrate how Mirage's in-memory database enables realistic data
+        fetching and persisting during a single application session.
     </p>
     <p class="mt-4">Mirage's state is reset whenever the application is reloaded.</p>
 </div>
